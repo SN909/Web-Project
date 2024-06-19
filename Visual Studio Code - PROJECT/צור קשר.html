@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="main.css">
+    <title>צור קשר</title>
+    <script src="https://kit.fontawesome.com/578b787efe.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <!-- navigation bar start -->
+    
+    <header>
+      <nav>
+        <ul class="menu">
+          <li><a href="דף הבית.html">דף הבית<span></span></a></li>
+          <li><a href="תפריט.html">תפריט<span></span></a></li>
+          <li><a href="הזמנת מקום.html">הזמנת מקום<span></span></a></li>
+          <li><a class="active" href="צור קשר.html">צור קשר<span></span></a></li>
+          <li><a href="גלריה.html">גלריה<span></span></a></li>
+          <li><a href="אודות.html">אודות<span></span></a></li>
+          <img src="Shainese.gif" alt="The Restaurant Logo" style="width: 120px; height: 88px; float: left;">
+        </ul>
+      </nav>
+    </header>
+
+    <!-- navigation bar end -->
+
+    <!-- contact box start -->
+
+    <div class="hero"> <!--לא הצלחתי לעשות בעברית ושיהיה מימין לשמאל, אז הפכתי לאנגלית-->
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d83de094-c82a-4b43-8537-608b66cc1996">
+
+        <div class="name-and-phone-number-row">
+          <div class="input-contact-group">
+            <input type="text" id="name" name="name" required> <!--web3forms name-->
+            <label for="name"><i class="fa-solid fa-user"></i> Name</label>
+          </div>
+          <div class="input-contact-group">
+            <input type="text" id="phone-number" name="phone" required><!--web3forms phone-->
+            <label for="phone-number"><i class="fa-solid fa-phone"></i> Phone</label>
+          </div>
+        </div>
+        <div class="input-contact-group">
+          <input type="text" id="email" name="email" required><!--web3forms email-->
+          <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+        </div>
+        <div class="input-contact-group">
+          <textarea id="message" rows="8" name="message" required></textarea><!--web3forms message-->
+          <label for="message"><i class="fa-solid fa-comments"></i> Message</label>
+        </div>
+        
+        <button type="submit">Send <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+
+    <!-- contact box end -->
+
+    <!-- footer start -->
+
+    <footer dir="rtl">
+      <div class="footer-row">
+
+        <div class="footer-col">
+          <h3>צור קשר <div class="footer-underline"><span></span></div> </h3>
+          <p>012-3456789</p>
+          <p>דרכא בגין, גדרה</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>שעות פתיחה <div class="footer-underline"><span></span></div> </h3>
+          <p>כל ימות השבוע</p>
+          <p>9:00 - 23:00</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>קישורים מהירים <div class="footer-underline"><span></span></div> </h3>
+          <ul class="footer-links">
+            <li><a href="דף הבית.html">דף הבית</a></li>
+            <li><a href="תפריט.html">תפריט</a></li>
+            <li><a href="הזמנת מקום.html">הזמנת מקום</a></li>
+            <li><a href="צור קשר.html">צור קשר</a></li>
+            <li><a href="גלריה.html">גלריה</a></li>
+            <li><a href="אודות.html">אודות</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- footer end -->
+
+  </body>
+</html>

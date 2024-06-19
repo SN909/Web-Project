@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="main.css">
+    <title>הזמנת מקום</title>
+  </head>
+  <body>
+
+    <!-- navigation bar start -->
+    
+    <header>
+      <nav>
+        <ul class="menu">
+          <li><a href="דף הבית.html">דף הבית<span></span></a></li>
+          <li><a href="תפריט.html">תפריט<span></span></a></li>
+          <li><a class="active" href="הזמנת מקום.html">הזמנת מקום<span></span></a></li>
+          <li><a href="צור קשר.html">צור קשר<span></span></a></li>
+          <li><a href="גלריה.html">גלריה<span></span></a></li>
+          <li><a href="אודות.html">אודות<span></span></a></li>
+          <img src="Shainese.gif" alt="The Restaurant Logo" style="width: 120px; height: 88px; float: left;">
+        </ul>
+      </nav>
+    </header>
+
+    <!-- navigation bar end -->
+
+    <!-- reservation start -->
+  
+    <div class="reservation" dir="rtl">
+      <h2>בחרת את שולחן מספר 8</h2>               <!--לשנות מספר שולחן בהתאם-->
+      <div class="reservation-card-container">
+
+        <div class="reservation-card-container-text">
+          <h3>הזמנה</h3>
+          <form>
+
+            <div class="form-row">
+              
+              <div class="form-row-day">
+
+                <div class="form-row-day-item">
+                  <input type="radio" id="test1" name="day" checked="checked">
+                  <label for="test1" style="font-size: 16px;">ראשון</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test2" name="day">
+                  <label for="test2" style="font-size: 16px;">שני</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test3" name="day">
+                  <label for="test3" style="font-size: 16px;">שלישי</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test4" name="day">
+                  <label for="test4" style="font-size: 16px;">רביעי</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test5" name="day">
+                  <label for="test5" style="font-size: 16px;">חמישי</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test6" name="day">
+                  <label for="test6" style="font-size: 16px;">שישי</label>
+                </div>
+                <div class="form-row-day-item">
+                  <input type="radio" id="test7" name="day">
+                  <label for="test7" style="font-size: 16px;">שבת</label>
+                </div>
+
+              </div>
+              <div class="form-row-hour">
+                
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check1" name="hour" checked="checked">
+                  <label for="check1" style="font-size: 16px;">9:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check2" name="hour">
+                  <label for="check2" style="font-size: 16px;">11:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check3" name="hour">
+                  <label for="check3" style="font-size: 16px;">13:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check4" name="hour">
+                  <label for="check4" style="font-size: 16px;">15:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check5" name="hour">
+                  <label for="check5" style="font-size: 16px;">17:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check6" name="hour">
+                  <label for="check6" style="font-size: 16px;">19:00</label>
+                </div>
+                <div class="form-row-hour-item">
+                  <input type="radio" id="check7" name="hour">
+                  <label for="check7" style="font-size: 16px;">21:00</label>
+                </div>                
+                  
+              </div>
+            </div>
+
+            <div class="form-row">
+              <input type="text" placeholder="שם מלא" id="fullNameInput" required>
+              <input type="text" placeholder="טלפון" id="phoneNumberInput" required>
+            </div>
+
+            <div class="form-row">
+              <input type="number" placeholder="כמות אנשים" id="numberOfPeopleInput" min="1" max="8" required>    <!--לשנות מינימום ומקסימום בהתאם לשולחן-->
+              <input type="submit" value="שלח הזמנה">
+            </div>
+          </form>
+
+
+          <script>
+            // בודק אם יש מערך קיים כבר
+            if (sessionStorage.getItem('schedule8')) {
+              let storedschedule8 = JSON.parse(sessionStorage.getItem('schedule8'));
+              if (storedschedule8.some(row => row.includes(1))) {
+                schedule8 = storedschedule8;
+              }
+              else {
+                // יוצר מערך חדש אם זה ריק או הכל 0
+                schedule8 = [];
+                for (let i = 0; i < 7; i++) {
+                  schedule8.push(new Array(7).fill(0));
+                }
+                sessionStorage.setItem('schedule8', JSON.stringify(schedule8));
+              }
+            } else {
+              // יוצר מערך חדש אם הוא לא קיים באחסון
+              schedule8 = [];
+              for (let i = 0; i < 7; i++) {
+                schedule8.push(new Array(7).fill(0));
+              }
+              sessionStorage.setItem('schedule8', JSON.stringify(schedule8));
+            }
+
+            // כשלוחצים על שלח, זה מפעיל את הפעולות למטה
+            document.querySelector('input[type="submit"]').addEventListener('click', (e) => {
+              e.preventDefault();
+            
+              // שווה ערך למספר של היום או השעה כי מוחקים מהאיי-די את המילים
+              let day = document.querySelector('input[name="day"]:checked').id.replace('test', '');
+              let hour = document.querySelector('input[name="hour"]:checked').id.replace('check', '');
+            
+              // כך זה ידפיס את הערך האמיתי של היום והשעה
+              const hourOptions = ['9:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'];
+              const dayOptions = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
+            
+              // Use the arrays to get the corresponding options
+              let dayOption = dayOptions[day - 1];
+              let hourOption = hourOptions[hour - 1];
+
+              // לוקח את המערך הנוכחי
+              schedule8 = JSON.parse(sessionStorage.getItem('schedule8'));
+            
+              // בודק אם התאריך הזה תפוס
+              if (schedule8[day - 1][hour - 1] === 1) {
+                alert("תאריך זה תפוס. אנא בחר תאריך אחר עבור שולחן זה.");
+              }
+              else {
+                // זה שווה למה שהמשתמש מכניס בתיבת טקסט
+                let fullName = document.querySelector('#fullNameInput').value;
+                let phoneNumber = document.querySelector('#phoneNumberInput').value;
+                let numberOfPeople = document.querySelector('#numberOfPeopleInput').value;
+              
+                // שומר את המידע שנכנס בתאריך
+                let reservation = {
+                  fullName: fullName,
+                  phoneNumber: phoneNumber,
+                  numberOfPeople: numberOfPeople,
+                  dayOption: dayOption,
+                  hourOption: hourOption
+                };
+              
+                // מעדכן את הכל באחסון
+                schedule8[day - 1][hour - 1] = 1;
+                schedule8.push(reservation);
+                sessionStorage.setItem('schedule8', JSON.stringify(schedule8));
+              
+                alert("התאריך נשמר בהצלחה!");
+              }
+            });
+            
+          </script>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- reservation end -->
+
+    <!-- footer start -->
+
+    <footer dir="rtl">
+      <div class="footer-row">
+
+        <div class="footer-col">
+          <h3>צור קשר <div class="footer-underline"><span></span></div> </h3>
+          <p>012-3456789</p>
+          <p>דרכא בגין, גדרה</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>שעות פתיחה <div class="footer-underline"><span></span></div> </h3>
+          <p>כל ימות השבוע</p>
+          <p>9:00 - 23:00</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>קישורים מהירים <div class="footer-underline"><span></span></div> </h3>
+          <ul class="footer-links">
+            <li><a href="דף הבית.html">דף הבית</a></li>
+            <li><a href="תפריט.html">תפריט</a></li>
+            <li><a href="הזמנת מקום.html">הזמנת מקום</a></li>
+            <li><a href="צור קשר.html">צור קשר</a></li>
+            <li><a href="גלריה.html">גלריה</a></li>
+            <li><a href="אודות.html">אודות</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- footer end -->
+  </body>
+</html>

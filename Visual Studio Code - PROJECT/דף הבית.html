@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="main.css">
+    <title>דף הבית</title>
+  </head>
+  <body>
+
+    <!-- navigation bar start -->
+
+    <header>
+      <nav>
+        <ul class="menu">
+          <li><a class="active" href="דף הבית.html">דף הבית<span></span></a></li>
+          <li><a href="תפריט.html">תפריט<span></span></a></li>
+          <li><a href="הזמנת מקום.html">הזמנת מקום<span></span></a></li>
+          <li><a href="צור קשר.html">צור קשר<span></span></a></li>
+          <li><a href="גלריה.html">גלריה<span></span></a></li>
+          <li><a href="אודות.html">אודות<span></span></a></li>
+          <img src="Shainese.gif" alt="The Restaurant Logo" style="width: 120px; height: 88px; float: left;">
+        </ul>
+      </nav>
+    </header>
+
+    <!-- navigation bar end -->
+
+    <!-- image slide start -->
+
+    <div class="slider">
+      <div class="slides">
+        <!-- radio buttons start -->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <input type="radio" name="radio-btn" id="radio5">
+        <!-- radio buttons end -->
+
+        <!-- slide images start -->
+        <div class="slide first">
+          <img src="images/1.jpg">
+        </div>
+        <div class="slide">
+          <img src="images/2.jpg">
+        </div>
+        <div class="slide">
+          <img src="images/3.jpg">
+        </div>
+        <div class="slide">
+          <img src="images/4.jpg">
+        </div>
+        <div class="slide">
+          <img src="images/5.jpg">
+        </div>
+        
+        <!-- slide images end -->
+
+        <!-- automatic navigation start -->
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+          <div class="auto-btn5"></div>
+        </div>
+        <!-- automatic navigation end -->
+      </div>
+      <!-- manual navigation start -->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+        <label for="radio5" class="manual-btn"></label>
+      </div>
+      <!-- manual navigation end -->
+    </div>
+
+    <script type="text/javascript">
+      var counter = 1;
+      setInterval(function(){
+        document.getElementById('radio' + counter).checked = true;
+        counter++;
+        if(counter > 5){
+          counter = 1;
+        }
+      }, 5000);
+    </script>
+
+    <!-- image slide end + ^JAVASCRIPT^ -->
+
+    <!-- little information start -->
+
+    <div class="little-info" dir="rtl">
+      <div class="little-text1">
+        <img src="images/6.jpg">
+        <div>
+          <h2>מסעדת Shainese</h2>
+          <p>
+            היא מקום מושלם לחוויה קולינרית מושלמת. <br> <br>
+            המסעדה ממוקמת על חוף ים יפייפה, <br> <br>
+            ומציעה נוף מרהיב לאופק.
+          </p>
+        </div>
+      </div>
+      <div class="little-text2">
+        <div>
+          <p>
+            בתפריטנו תוכלו למצוא מגוון רחב <br> <br>
+            של מאכלים סיניים מקוריים וטעימים. <br> <br>
+            השפים המיומנים שלנו מבשלים <br> <br>
+            מנות מקומיות ומסורתיות, <br> <br>
+            כולל מרקים, בשרים ייחודיים ומנות נפלאות <br> <br>
+            מתוך עשרות שנים של ניסיון בקולינריות הסינית.
+          </p>
+        </div>
+        <img src="images/7.jpg">
+      </div>
+    </div>
+
+    <!-- little information end -->
+
+    <!-- footer start -->
+
+    <footer dir="rtl">
+      <div class="footer-row">
+
+        <div class="footer-col">
+          <h3>צור קשר <div class="footer-underline"><span></span></div> </h3>
+          <p>012-3456789</p>
+          <p>דרכא בגין, גדרה</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>שעות פתיחה <div class="footer-underline"><span></span></div> </h3>
+          <p>כל ימות השבוע</p>
+          <p>9:00 - 23:00</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>קישורים מהירים <div class="footer-underline"><span></span></div> </h3>
+          <ul class="footer-links">
+            <li><a href="דף הבית.html">דף הבית</a></li>
+            <li><a href="תפריט.html">תפריט</a></li>
+            <li><a href="הזמנת מקום.html">הזמנת מקום</a></li>
+            <li><a href="צור קשר.html">צור קשר</a></li>
+            <li><a href="גלריה.html">גלריה</a></li>
+            <li><a href="אודות.html">אודות</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- footer end -->
+
+  </body>
+</html>
